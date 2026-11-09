@@ -1,7 +1,116 @@
 ﻿@page "/"
-@using Microsoft.AspNetCore.Authorization
 
-<PageTitle>Home</PageTitle>
+<PageTitle>ReShare — Luxury Marketplace</PageTitle>
 
+<!-- Hero Banner -->
+<section class="hero">
+    <h1>ReShare</h1>
+    <p>Odkrywaj i przekazuj wyjątkowe bilety, przedmioty oraz wyjazdy w minimalistycznej oprawie.</p>
+</section>
 
+<!-- Pasek kategorii -->
+<div class="categories-bar">
+    <button class="category-chip active">Wszystkie</button>
+    <button class="category-chip">Bilety</button>
+    <button class="category-chip">Używane rzeczy</button>
+    <button class="category-chip">Wyjazdy</button>
+    <button class="category-chip free-chip">Za darmo</button>
+</div>
 
+<!-- Grid z Ogłoszeniami -->
+<section class="feed-section">
+    <div class="feed-header">
+        <h2>Selekcja Ofert</h2>
+        <span class="results-count">4 aktywne przedmioty</span>
+    </div>
+
+    <div class="cards-grid">
+        <!-- Karta 1: Bilet -->
+        <article class="item-card">
+            <div class="card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop" alt="Koncert" class="card-img" />
+                <div class="card-badges">
+                    <span class="badge category-badge">Bilety</span>
+                    <span class="badge price-badge">120 PLN</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <h3>2x Bilet na koncert Dawida Podsiadło</h3>
+                <p class="location">Warszawa • Dzisiaj</p>
+                <div class="card-footer">
+                    <div class="seller-info">
+                        <span class="avatar">M</span>
+                        <span class="seller-name">Michał</span>
+                    </div>
+                    <a href="wiadomosci" class="btn-chat">Kontakt</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Karta 2: Rzecz (Za darmo) -->
+        <article class="item-card">
+            <div class="card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=800&auto=format&fit=crop" alt="Komoda" class="card-img" />
+                <div class="card-badges">
+                    <span class="badge category-badge">Używane</span>
+                    <span class="badge free-badge">Za darmo</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <h3>Stara drewniana komoda PRL</h3>
+                <p class="location">Kraków • 2 godz. temu</p>
+                <div class="card-footer">
+                    <div class="seller-info">
+                        <span class="avatar">A</span>
+                        <span class="seller-name">Anna</span>
+                    </div>
+                    <a href="wiadomosci" class="btn-chat">Kontakt</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Karta 3: Wyjazd -->
+        <article class="item-card">
+            <div class="card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=800&auto=format&fit=crop" alt="Domek w górach" class="card-img" />
+                <div class="card-badges">
+                    <span class="badge category-badge">Wyjazdy</span>
+                    <span class="badge price-badge">450 PLN</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <h3>Voucher na weekend w domku w Tatrach</h3>
+                <p class="location">Zakopane • Wczoraj</p>
+                <div class="card-footer">
+                    <div class="seller-info">
+                        <span class="avatar">K</span>
+                        <span class="seller-name">Kamil</span>
+                    </div>
+                    <a href="wiadomosci" class="btn-chat">Kontakt</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Karta 4: Rzecz -->
+        <article class="item-card">
+            <div class="card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?q=80&w=800&auto=format&fit=crop" alt="Tenis" class="card-img" />
+                <div class="card-badges">
+                    <span class="badge category-badge">Używane</span>
+                    <span class="badge price-badge">80 PLN</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <h3>Rakiety do tenisa + pokrowiec</h3>
+                <p class="location">Poznań • 3 dni temu</p>
+                <div class="card-footer">
+                    <div class="seller-info">
+                        <span class="avatar">P</span>
+                        <span class="seller-name">Piotr</span>
+                    </div>
+                    <a href="wiadomosci" class="btn-chat">Kontakt</a>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>

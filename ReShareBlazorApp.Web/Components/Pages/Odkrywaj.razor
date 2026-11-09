@@ -1,0 +1,44 @@
+﻿@page "/odkrywaj"
+
+<PageTitle>Odkrywaj ogłoszenia - ReShare</PageTitle>
+
+<div class="hero">
+    <h1>Odkrywaj wyjątkowe oferty</h1>
+    <p>Przeszukaj wszystkie dostępne bilety, przedmioty i wyjazdy od użytkowników.</p>
+</div>
+
+<div class="categories-bar">
+    <button class="category-chip active">Wszystkie</button>
+    <button class="category-chip">🎫 Bilety</button>
+    <button class="category-chip">📦 Używane rzeczy</button>
+    <button class="category-chip">✈️ Wyjazdy i noclegi</button>
+    <button class="category-chip free-chip">🎁 Za darmo</button>
+</div>
+
+<section class="feed-section">
+    <div class="feed-header">
+        <h2>Wszystkie ogłoszenia</h2>
+        <span class="results-count">Trwa ładowanie pełnej listy...</span>
+    </div>
+
+    <!-- Tutaj w przyszłości wyświetlisz dynamiczną listę z bazy danych -->
+    <div class="cards-grid">
+        <article class="item-card">
+            <div class="card-image-placeholder">
+                <span class="badge category-badge">Bilety</span>
+                <span class="badge price-badge">120 zł</span>
+            </div>
+            <div class="card-body">
+                <h3>2x Bilet na koncert Dawida Podsiadło</h3>
+                <p class="location">📍 Warszawa • Dzisiaj</p>
+                <div class="card-footer">
+                    <div class="seller-info">
+                        <span class="avatar">M</span>
+                        <span class="seller-name">Michał</span>
+                    </div>
+                    <a href="wiadomosci" class="btn-chat">Napisz</a>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>

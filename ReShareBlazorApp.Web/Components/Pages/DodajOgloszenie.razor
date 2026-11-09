@@ -1,0 +1,78 @@
+﻿@page "/dodaj"
+@inject NavigationManager Navigation
+
+<PageTitle>Dodaj ogłoszenie - ReShare</PageTitle>
+
+<div class="add-offer-container">
+    <div class="add-offer-card">
+        <h2>Dodaj nowe ogłoszenie</h2>
+        <p>Wystaw bilet, niepotrzebną rzecz lub ofertę wyjazdu w kilka chwil.</p>
+
+        <form @onsubmit="HandleSubmit">
+            <!-- Wybór kategorii -->
+            <div class="form-group">
+                <label>Kategoria ogłoszenia</label>
+                <select class="form-control" @bind="kategoria">
+                    <option value="bilety">🎫 Bilety</option>
+                    <option value="rzeczy">📦 Używane rzeczy</option>
+                    <option value="wyjazdy">✈️ Wyjazdy i noclegi</option>
+                </select>
+            </div>
+
+            <!-- Tytuł -->
+            <div class="form-group">
+                <label>Tytuł ogłoszenia</label>
+                <input type="text" class="form-control" placeholder="np. 2x Bilet na koncert / Komoda PRL" @bind="tytul" required />
+            </div>
+
+            <!-- Typ ogłoszenia: Cena lub Za darmo -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Typ oferty</label>
+                    <select class="form-control" @bind="typOferty">
+                        <option value="sprzedaz">Sprzedaż</option>
+                        <option value="za-darmo">🎁 Oddam za darmo</option>
+                    </select>
+                </div>
+
+                @if (typOferty == "sprzedaz")
+                {
+                    <div class="form-group">
+                        <label>Cena (zł)</label>
+                        <input type="number" class="form-control" placeholder="np. 120" @bind="cena" required />
+                    </div>
+                }
+            </div>
+
+            <!-- Lokalizacja -->
+            <div class="form-group">
+                <label>Lokalizacja</label>
+                <input type="text" class="form-control" placeholder="np. Warszawa, Śródmieście" @bind="lokalizacja" required />
+            </div>
+
+            <!-- Opis -->
+            <div class="form-group">
+                <label>Opis</label>
+                <textarea class="form-control" rows="4" placeholder="Opisz szczegóły, stan, datę wydarzenia..." @bind="opis"></textarea>
+            </div>
+
+            <!-- Przycisk zatwierdzający -->
+            <button type="submit" class="btn-submit">Opublikuj ogłoszenie</button>
+        </form>
+    </div>
+</div>
+
+@code {
+    private string kategoria = "bilety";
+    private string tytul = "";
+    private string typOferty = "sprzedaz";
+    private decimal? cena;
+    private string lokalizacja = "";
+    private string opis = "";
+
+    private void HandleSubmit()
+    {
+        // Tutaj w przyszłości dodasz zapis do bazy danych
+        Navigation.NavigateTo("/");
+    }
+}

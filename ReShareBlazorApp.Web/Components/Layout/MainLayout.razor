@@ -1,5 +1,22 @@
-﻿@using ReShareBlazorApp.Web.Components.Elements
-@inherits LayoutComponentBase
+﻿@inherits LayoutComponentBase
+@using ReShareBlazorApp.Web.Components.Elements
 
-<Navbar/>
-@Body
+<div class="app-layout">
+    <!-- Twoje wydzielone menu -->
+    <Navbar />
+
+    <!-- Główna zawartość dynamiczna podstron -->
+    <main class="main-content-wrapper">
+        <div class="container">
+            @Body
+        </div>
+    </main>
+
+    <!-- Stopka strony -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 - ReShare. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+</div>  
+    

@@ -1,43 +1,78 @@
 ﻿@using System.Security.Claims
 @using Microsoft.AspNetCore.Components.Authorization
+
 <nav class="main-navbar">
     <div class="main-navbar-container">
-        <a class="main-navbar-brand" href="/">Navbar</a>
+        <!-- Logo -->
+        <a class="main-navbar-brand" href="/">
+            <div class="brand-logo-icon">RS</div>
+            <span>Re<span class="brand-accent">Share</span></span>
+        </a>
 
+        <!-- Linki nawigacyjne -->
         <ul class="main-navbar-links">
             <li class="main-navbar-item">
-                <a class="main-navbar-link active" href="/">Home</a>
+                <NavLink class="main-navbar-link" href="" Match="NavLinkMatch.All">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    Strona główna
+                </NavLink>
             </li>
             <li class="main-navbar-item">
-                <a class="main-navbar-link active" href="#">Odkrywaj</a>
+                <NavLink class="main-navbar-link" href="odkrywaj">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+                    Odkrywaj
+                </NavLink>
             </li>
             <li class="main-navbar-item">
-                <a class="main-navbar-link active" href="#">Wiadomości</a>
+                <NavLink class="main-navbar-link" href="wiadomosci">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    Wiadomości
+                </NavLink>
             </li>
             <li class="main-navbar-item">
-                <a class="main-navbar-link active" href="#">Profil</a>
+                <NavLink class="main-navbar-link" href="profil">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    Profil
+                </NavLink>
             </li>
             <li class="main-navbar-item">
-                <a class="main-navbar-link active" href="/login">Zaloguj się</a>
+                <NavLink class="main-navbar-link btn-add-nav" href="dodaj">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    Dodaj ogłoszenie
+                </NavLink>
             </li>
         </ul>
 
-        <form class="navbar-search" role="search">
-            <input class="navbar-search-input"
-                   type="search"
-                   placeholder="Search"
-                   aria-label="Search" />
-
-            <button class="navbar-search-button" type="submit">
-                <svg width="18" height="18">
-                    <use href="#search" />
+        <!-- Prawa strona: Wyszukiwarka i Logowanie -->
+        <div class="navbar-right">
+            <form class="navbar-search" role="search" @onsubmit="HandleSearch">
+                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
-            </button>
+                <input class="navbar-search-input"
+                       type="search"
+                       placeholder="Szukaj ogłoszeń..."
+                       aria-label="Search" />
+            </form>
+
             <AuthorizeView>
                 <Authorized Context="auth">
-                    <p>@auth.User.FindFirst(ClaimTypes.Email)?.Value</p>
+                    <div class="user-badge">
+                        <span class="user-email">@auth.User.FindFirst(ClaimTypes.Email)?.Value</span>
+                    </div>
                 </Authorized>
+                <NotAuthorized>
+                    <a class="btn-login" href="login">Zaloguj się</a>
+                </NotAuthorized>
             </AuthorizeView>
-        </form>
+        </div>
     </div>
 </nav>
+
+@code {
+    private void HandleSearch()
+    {
+        // Logika wyszukiwania
+    }
+}
